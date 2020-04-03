@@ -10,6 +10,7 @@ class Client
     protected $port;
     protected $protocol;
     protected $api_key;
+    protected $base_path;
 
     public function __construct(array $config)
     {
@@ -30,6 +31,12 @@ class Client
             $this->setProtocol('http');
         } else {
             $this->setProtocol($config['protocol']);
+        }
+
+        if (!empty($config['base_path'])) {
+            $this->base_path = $config['base_path'];
+        } else {
+            $this->base_path = '/';
         }
     }
 
@@ -149,7 +156,7 @@ class Client
 
     protected function getBaseUri()
     {
-        return $this->getProtocol() . '://' . $this->getHost() . ':' . $this->getPort() . '/';
+        return $this->getProtocol() . '://' . $this->getHost() . ':' . $this->getPort() . $this->base_path;
     }
 
     protected function sendRequest($method, $endpoint, array $data = [])
