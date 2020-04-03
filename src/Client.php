@@ -119,7 +119,7 @@ class Client
 
     public function createCollection(array $config)
     {
-        if (empty($config['name']) || empty($config['fields']) || empty($config['default_sorting_order'])) {
+        if (empty($config['name']) || empty($config['fields']) || empty($config['default_sorting_field'])) {
             throw new \RuntimeException('Collection config requires the following: name, fields & default_sorting_field.');
         }
 
