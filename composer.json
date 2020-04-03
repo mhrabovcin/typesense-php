@@ -15,11 +15,9 @@
     "require-dev": {
         "phpunit/phpunit": "^7"
     },
-    "extra": {
-        "autoload": {
-            "psr-4": {
-                "Chtombleson\\Typesense": "src/"
-            }
+    "autoload": {
+        "psr-4": {
+            "Chtombleson\\Typesense\\": "src/"
         }
     }
 }
