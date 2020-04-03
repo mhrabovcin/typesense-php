@@ -18,7 +18,7 @@
     "extra": {
         "autoload": {
             "psr-4": {
-                "Chtombleson\Typesense": "src/"
+                "Chtombleson\\Typesense": "src/"
             }
         }
     }
