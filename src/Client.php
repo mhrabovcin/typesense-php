@@ -159,7 +159,7 @@ class Client
         return $this->getProtocol() . '://' . $this->getHost() . ':' . $this->getPort() . $this->base_path;
     }
 
-    protected function sendRequest($method, $endpoint, array $data = [])
+    public function sendRequest($method, $endpoint, array $data = [])
     {
         $client = new HttpClient([
             'base_uri' => $this->getBaseUri(),
@@ -170,7 +170,7 @@ class Client
 
         switch (strtolower($method)) {
             case 'get':
-                if (!empty($data)) {
+                if (empty($data)) {
                     return $client->request(strtoupper($method), $endpoint);
                 } else {
                     return $client->request(strtoupper($method), $endpoint, ['query' => $data]);
